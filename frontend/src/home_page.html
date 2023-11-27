@@ -1,0 +1,39 @@
+<!--Created by: John Montesa-->
+<!--This is the home page for Course Compass-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Compass</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+    <style>
+        @font-face {
+            font-family: 'akira';
+            src: url('assets/fonts/Akira Expanded Demo.otf') format('opentype');
+        }
+
+        #content h1{
+            font-family: 'akira', akira;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <div id="content">
+        <h1>{{ pageTitle }}</h1>
+    </div>
+    <!-- Add any scripts or additional content at the end of the body -->
+    <script>
+        Vue.createApp({
+            data() {
+                return{
+                    pageTitle: 'Course Compass'
+                }
+            }
+        }).mount('#content')
+    </script>
+</body>
+</html>
