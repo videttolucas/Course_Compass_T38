@@ -7,6 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Compass</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Add any additional meta tags, stylesheets, or scripts here -->
     <style>
@@ -17,22 +22,148 @@
 
         #content h1{
             font-family: 'akira', akira;
+            text-align: center;
         }
+
+        img {
+            width: 100%;
+            height: auto; /* Maintain the image's aspect ratio */
+        }
+
+        .navbar {
+            background-color: #ffffff; /* Set background color to white */
+            border-bottom: 2px solid #000000; /* Add a black border at the bottom */
+        }
+
+        .navbar-brand img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .navbar-nav .nav-link {
+            font-family: 'akira';            
+            font-size: 30px;
+            color: #000000; /* Set text color to black */
+            margin-right: 35px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff; /* Set text color to white on hover */
+            background-color: #000000; /* Set background color to black on hover */
+        }
+
+        .dropdown-menu {
+            font-family: 'akira';
+            background-color: #ffffff;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .dropdown-item {
+            color: #000000;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        
+        .button-container {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .get-started-button {
+            font-family: akira;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px 30px;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s linear, color 0.3s linear;
+
+        }
+
+        .get-started-button:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
     </style>
 </head>
+
+
 <body>
-    <!-- Your content goes here -->
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="assets/course compass logo.png" alt="Course Compass Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- right-aligned menu items -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Checklist</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Log In</a></li>
+                                <li><a class="dropdown-item" href="#">Sign Up</a></li>
+                                <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
     <div id="content">
-        <h1>{{ pageTitle }}</h1>
+        <br>
+        <br>
+        <h1>{{ Description }}</h1>
+        <br>
     </div>
+
+    <img src="assets/unrskyline.png" alt="Unr whole campus with skyline">
+    <br>
+    <br>
+    <div class="button-container">
+        <button class="get-started-button">Get Started</button>
+    </div>
+
+
     <!-- Add any scripts or additional content at the end of the body -->
     <script>
         Vue.createApp({
             data() {
                 return{
-                    pageTitle: 'Course Compass'
-                }
-            }
+                    Description: 'Remove the clutter of your college experience.'
+                };
+            },
+
         }).mount('#content')
     </script>
 </body>
