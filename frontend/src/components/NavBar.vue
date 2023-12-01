@@ -15,7 +15,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <!-- right-aligned menu items -->
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Courses</a>
+                        <router-link to="/courses" class = "nav-link">Courses</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Schedule</a>

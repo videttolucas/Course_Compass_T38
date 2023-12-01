@@ -21,6 +21,10 @@
       <button class="get-started-button">Get Started</button>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
 </template>
 
 <script>
