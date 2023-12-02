@@ -66,7 +66,7 @@
             
                             { name: 'this is a projected course'},
                             { name: 'this is a projected course' }
-                            // Add more courses as needed
+                            //Add more courses as needed
                         ],
             };
         }

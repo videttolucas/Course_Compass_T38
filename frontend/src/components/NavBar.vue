@@ -18,7 +18,7 @@
                         <router-link to="/courses" class = "nav-link">Courses</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Schedule</a>
+                        <router-link to="/schedule" class = "nav-link">Schedule</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Checklist</a>

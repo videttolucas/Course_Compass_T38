@@ -15,10 +15,11 @@
           </button>
           <!-- Each menu items are dropdowns with specific filters -->
           <div class="dropdown-menu" aria-labelledby="dropdownListItem">
-            <a class="dropdown-item" v-for="(childItem, childIndex) in menuItem.children" :key="childIndex" @click="handleItemClick(childItem)">{{ childItem.label }}</a>
+            <!-- Children are the specific filters -->
+            <a class="dropdown-item" v-for="(childItem, childIndex) in menuItem.children" :key="childIndex" @click="filterPress(childItem)">{{ childItem.label }}</a>
           </div>
         </div>
-        <div v-else @click="handleItemClick(menuItem)">{{ menuItem.label }}</div>
+        <div v-else @click="filterPress(menuItem)">{{ menuItem.label }}</div>
       </li>
     </ul>
   </div>
@@ -49,7 +50,7 @@
         };
     },
     methods: {
-        handleItemClick(item) {
+        filterPress(item) {
         this.$emit('itemSelected', item);
         },
     },

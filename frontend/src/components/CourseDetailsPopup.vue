@@ -1,9 +1,13 @@
-<!-- CourseDetailsPopup.vue -->
+<!-- Created by: John Montesa -->
+<!-- This component details a specific course a user has interacted with -->
+<!-- It will popup a screen for the user to see more indepth information about the course and student's opinions on it -->
+<!-- The user faces two buttons where they can either close the popup screen or add it to their schedule -->
+<!-- If the user adds it to their schedule, it will add it to a schedule array -->
 <template>
-    <div class="popup" @click="closepopup">
+    <div class="popup" @click="closePopup">
         <!--Pop up Screen with details of course-->
         <div class="popup-content" @click.stop>
-            <button class="close-btn" @click="closepopup">
+            <button class="close-btn" @click="closePopup">
                 <img src="../assets/X.png" alt="Close Button">
             </button>
             <h2>Course Details</h2>
@@ -37,6 +41,10 @@
                     <div class="w-100"></div>
                 </div>
             </div>
+            <br>
+            <div class="button-container">
+                    <button class="schedule-button" @click="addToSchedule">Add Course to Schedule</button>
+            </div>
         </div>
     </div>
 </template>
@@ -47,8 +55,11 @@
             course: Object,
         },
         methods: {
-            closepopup() {
+            closePopup() {
                 this.$emit('close');
+                },
+            addToSchedule() {
+                this.$emit('addToSchedule', this.course);
                 },
             },
         };
@@ -99,5 +110,32 @@
     }
     p{
         font-family: Poppins, sans-serif;
+    }
+
+    .button-container {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: right;
+        justify-content: right;
+    }
+
+    .schedule-button {
+        font-family: akira;
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px 30px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        transition: background-color 0.3s linear, color 0.3s linear;
+        text-decoration: none;
+    }
+
+    .schedule-button:hover {
+        background-color: #ffffff;
+        color: #000000;
     }
 </style>
