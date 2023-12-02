@@ -3,6 +3,7 @@
 <!-- This page will contain brief information about Course Compass, the team, and why it was created -->
 
 <template>
+    <!--About Course Compass-->
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -22,6 +23,7 @@
         </div>
     </div>
 
+    <!--Why Course Compass?-->
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -36,6 +38,7 @@
         </div>
     </div>
 
+    <!--Behind the Team-->
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -74,12 +77,12 @@
         font-size: 20px;
     }
     h1{
-        font-family: 'akira', akira;
+        font-family: 'akira';
         text-align: center;
     }
 
     img {
         width: 100%;
-        height: auto; /* Maintain the image's aspect ratio */
+        height: auto;
     }
 </style>

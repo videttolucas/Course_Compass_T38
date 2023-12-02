@@ -3,28 +3,25 @@
 <!-- This is the first page the user will see -->
 
 <template>
-  <div>
-    <nav-bar></nav-bar>
-    <div id="content">
-        <br>
-        <br>
-        <h1>Remove the clutter of your college experience.</h1>
-        <h1>Use Course Compass.</h1>
-        <br>
-    </div>
+    <br>
+    <br>
+    <h1>Remove the clutter of your college experience.</h1>
+    <h1>Use Course Compass.</h1>
+    <br>
 
     <img src="@/assets/unrskyline.png" alt="Unr whole campus with skyline">
     <br>
     <br>
 
     <div class="button-container">
-      <button class="get-started-button">Get Started</button>
+        <router-link to="/courses">
+            <button class="get-started-button">Get Started</button>
+        </router-link>
     </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </template>
 
 <script>

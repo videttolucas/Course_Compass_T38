@@ -1,4 +1,5 @@
 <template>
+  <!-- Display the navbar and the router view on every page -->
   <NavBar></NavBar>
   <router-view/>
 </template>

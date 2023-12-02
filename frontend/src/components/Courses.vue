@@ -3,30 +3,72 @@
 <!-- This page prompts the user...... -->
 
 <template>
-    <!--<img src="@/assets/unrquad.png" alt="Unr quad">-->
     <br>
     <h1>Courses</h1>
+    <div class="container-fluid mt-3">
 
-    <div class="container mt-3">
         <div class="row">
-            <div class="col-md-3">
-                    <FilterMenu></FilterMenu>
-            </div>            
-            <div class="col-md-auto ml-auto">
-
+            <!--LEFT SIDE OF PAGE-->
+            <div class="col-md-4 d-flex flex-column">
+                <!--Department Search Row-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="department-search">Department</span>
+                    <input type="text" class="form-control" v-model="departmentSearch" placeholder="Enter Department Name">
+                </div>
+                <!--Professor Search Row-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="professor-search">Professor</span>
+                    <input type="text" class="form-control" v-model="professorSearch" placeholder="Enter Professor Name">
+                </div>
+                <!--Sort by Major Requirements Row-->
+                <div class="form-check mb-3">
+                    <label class="form-check-label" for="sortMajorRequirements">
+                        <span class="ml-1">Only Show Courses from Major</span>
+                    </label>
+                    <input class="form-check-input" type="checkbox" v-model="sortByMajorRequirements" id="sortMajorRequirements">
+                </div>
+                <FilterMenu></FilterMenu>
             </div>
+
+            <!--RIGHT SIDE OF PAGE-->
+            <div class="col d-flex flex-column">
+                <CourseList :courses="courseList"></CourseList>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script>
     import FilterMenu from '@/components/FilterMenu.vue'
+    import CourseList from '@/components/CourseList.vue'
 
     export default{
+        //Import components and Data
         name: 'Courses',
         components:
         {
-            FilterMenu
+            FilterMenu,
+            CourseList
+        },
+        data() {
+            return {
+                departmentSearch: '',
+                professorSearch: '',
+                sortByMajorRequirements: false,
+                
+                //Hardcoded course list for now, will work on getting data from database later
+                      courseList: [
+                            { department: 'CS', name: 'CS 425 - Software Engineering', professor: ['Sara Davis', 'Vinh Le'], rating: 4.5, level: '400+', startTime: '10-11 AM',
+                             keywords: ['Attendance', 'Lecture Heavy', 'Textbook Required', 'Projects'], location: 'WPEB 130', format: 'In-Person', requirement: 'N/A',
+                              term: 'Fall 2023', program: 'Undergraduate', days: ['Tuesday', 'Thursday'], meetingtime:'10:30 AM - 11:45 AM', units: '3.0',
+                              prerequisites: 'CS 446', status: 'Waitlist', section: '1001' },
+            
+                            { name: 'this is a projected course'},
+                            { name: 'this is a projected course' }
+                            // Add more courses as needed
+                        ],
+            };
         }
     }
 </script>
@@ -36,6 +78,7 @@
         margin: 30px;
         padding: 0px;
         overflow: hidden;
+        background-color:blue;
     }
     p{
         font-family: 'Poppins', sans-serif;
@@ -47,8 +90,16 @@
         margin-left: 30px;
     }
 
-    img {
-        max-width: 100%;
-        height: auto; /* Maintain the image's aspect ratio */
+    .input-group-text{
+        font-family: 'akira', akira;
+        font-size: 15px;
+    }
+    .form-control{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+    }
+    .form-check-label{
+        font-family: 'akira', akira;
+        font-size: 15px;
     }
 </style>
