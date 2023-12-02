@@ -21,7 +21,7 @@
                         <router-link to="/schedule" class = "nav-link">Schedule</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Checklist</a>
+                        <router-link to="/progress" class = "nav-link">Progress</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/about" class = "nav-link">About</router-link>
@@ -31,8 +31,8 @@
                             Account
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Log In</a></li>
-                            <li><a class="dropdown-item" href="#">Sign Up</a></li>
+                            <li><router-link to="/login" class = "dropdown-item">Log in</router-link></li>
+                            <li><router-link to="/signup" class = "dropdown-item">Sign Up</router-link></li>
                             <li><a class="dropdown-item" href="#">Profile Settings</a></li>
                         </ul>
                     </li>

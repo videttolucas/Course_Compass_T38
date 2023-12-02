@@ -3,6 +3,9 @@ import Home from '../views/HomeView.vue'
 import About from '../views/AboutView.vue'
 import Courses from '../views/CoursesView.vue'
 import Schedule from '../views/ScheduleView.vue'
+import Progress from '../views/ProgressView.vue'
+import Login from '../views/LoginView.vue'
+import Signup from '../views/SignupView.vue'
 
 const routes = [
   {
@@ -25,6 +28,21 @@ const routes = [
     name: 'schedule',
     component: Schedule
   },
+  {
+    path: '/progress',
+    name: 'progress',
+    component: Progress
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: Signup
+  }
 ]
 
 const router = createRouter({

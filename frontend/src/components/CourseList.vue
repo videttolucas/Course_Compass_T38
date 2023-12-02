@@ -94,9 +94,9 @@
         font-family: akira;
         padding: 8px;
         box-sizing: border-box;
-        margin-bottom: 1px;
-        border-radius: 0px;
-        border: 1px solid #000000;
+        /*margin-bottom: 1px;
+        /*border-radius: 0px;
+        /*border: 1px solid #000000;*/
         color: #000000;
         cursor: pointer;
     }
