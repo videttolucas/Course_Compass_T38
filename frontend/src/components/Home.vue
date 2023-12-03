@@ -14,7 +14,7 @@
     <br>
 
     <div class="button-container">
-        <router-link to="/courses">
+        <router-link to="/signup">
             <button class="get-started-button">Get Started</button>
         </router-link>
     </div>

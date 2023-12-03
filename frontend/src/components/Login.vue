@@ -40,19 +40,19 @@
             return{
                 email: '',
                 password: '',
-                showPassword: false
+                passwordVis: false
             };
         },
         methods:{
             toggleVisibility(){
                 const passwordInput = this.$refs.passwordInput;
                 if (passwordInput) {
-                    this.showPassword = !this.showPassword;
-                    passwordInput.type = this.showPassword ? 'text' : 'password';
+                    this.passwordVis = !this.passwordVis;
+                    passwordInput.type = this.passwordVis ? 'text' : 'password';
                 }
             },
             eyeIcon(){
-                return this.showPassword ? require('../assets/eyeclose.png') : require('../assets/eye.png');
+                return this.passwordVis ? require('../assets/eyeclose.png') : require('../assets/eye.png');
             }
         }
     };
