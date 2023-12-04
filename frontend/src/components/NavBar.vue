@@ -1,6 +1,6 @@
 <!-- Created by: John Montesa -->
 <!-- This component creates the navigation bar that the user will interact with -->
-<!-- There are ___ buttons, and one drop down menu that directs the user to go -->
+<!-- There are 5 buttons, and one is a drop down menu that directs the user to log in, sign up, or check their profile settings-->
 
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -33,7 +33,7 @@
                         <ul class="dropdown-menu">
                             <li><router-link to="/login" class = "dropdown-item">Log in</router-link></li>
                             <li><router-link to="/signup" class = "dropdown-item">Sign Up</router-link></li>
-                            <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                            <li><router-link to="/myaccount" class = "dropdown-item">My Account</router-link></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,8 +48,8 @@
 
 <style scoped>
     .navbar {
-        background-color: #ffffff; /* Set background color to white */
-        border-bottom: 2px solid #000000; /* Add a black border at the bottom */
+        background-color: #ffffff; 
+        border-bottom: 2px solid #000000;
     }
 
     .navbar-brand img {
@@ -60,13 +60,13 @@
     .nav-link {
         font-family: 'akira';            
         font-size: 27px;
-        color: #160e0e; /* Set text color to black */
+        color: #160e0e;
         margin-right: 10px;
     }
 
     .nav-link:hover {
-        color: #ffffff; /* Set text color to white on hover */
-        background-color: #000000; /* Set background color to black on hover */
+        color: #ffffff;
+        background-color: #000000;
     }
 
     .dropdown-menu {
@@ -74,6 +74,7 @@
         background-color: #ffffff;
         border: 1px solid transparent;
         text-align: center;
+        min-width: 220px;
     }
 
     .dropdown-item {

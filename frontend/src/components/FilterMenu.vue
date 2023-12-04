@@ -1,8 +1,5 @@
 <!-- Created by: John Montesa -->
 <!-- This component creates the filter menu that the user will interact with -->
-<!-- There are ___ buttons, which drop down to reveal different filters the user can use to filter classes-->
-<!-- There are ___ buttons, which drop down to reveal different filters the user can use to filter classes-->
-<!-- There are ___ buttons, which drop down to reveal different filters the user can use to filter classes-->
 
 <template>
   <div class="sidebar-menu">

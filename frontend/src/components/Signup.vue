@@ -171,6 +171,7 @@
     .left-section {
         flex: 1;
         padding: 20px;
+        border-right: 1px solid #000000;
     }
 
     .right-section {
@@ -188,6 +189,9 @@
         font-family: Poppins, sans-serif;
     }
 
+    option {
+        font-family: Poppins, sans-serif;
+    }
     h2 {
         text-align: left;
         font-family:akira;

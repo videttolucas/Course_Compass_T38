@@ -6,6 +6,7 @@ import Schedule from '../views/ScheduleView.vue'
 import Progress from '../views/ProgressView.vue'
 import Login from '../views/LoginView.vue'
 import Signup from '../views/SignupView.vue'
+import MyAccount from '../views/MyAccountView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: Signup
+  },
+  {
+    path: '/myaccount',
+    name: 'myaccount',
+    component: MyAccount
   }
 ]
 
