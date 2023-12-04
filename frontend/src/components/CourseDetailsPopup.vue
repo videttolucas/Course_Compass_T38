@@ -87,7 +87,7 @@
     }
 
     .left-column {
-        border-right: 1px solid #000000; /* Black line between columns */
+        border-right: 1px solid #000000;
     }
 
     .close-btn {

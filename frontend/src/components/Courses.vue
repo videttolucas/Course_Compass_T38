@@ -1,6 +1,7 @@
 <!--Created by: John Montesa-->
 <!-- This is the courses page for Course Compass -->
-<!-- This page prompts the user...... -->
+<!-- This page prompts the user to select courses based on filters they choose -->
+<!-- Courses will have a popup menu that gives details about it -->
 
 <template>
     <br>

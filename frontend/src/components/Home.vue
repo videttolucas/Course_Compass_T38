@@ -25,13 +25,6 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      Description: 'Remove the clutter of your college experience.'
-    };
-  }
-};
 </script>
 
 <style scoped>
@@ -48,7 +41,7 @@ export default {
 
     img {
         width: 100%;
-        height: auto; /* Maintain the image's aspect ratio */
+        height: auto;
     }
 
     .button-container {
