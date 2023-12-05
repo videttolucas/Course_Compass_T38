@@ -14,8 +14,8 @@ CORS(app)
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
-    email = data['email']
-    password = data['password']
+    email = data['Email']
+    password = data['Passwd']
     
     connection = getConnection()
     cursor = connection.cursor(dictionary=True)
@@ -26,14 +26,14 @@ def login():
         token = hashlib.sha256(os.urandom(64)).hexdigest()
         expiration = datetime.now() + timedelta(hours = 48)
         
-        # Store token and token expiration in database
-        
+        # Store token and token expiration in database (not necessary for demo)
+        cursor.close()
+        connection.close()
         return  jsonify({"message": "Login successful", "user": user, "token": token, "expires": expiration.isoformat()}), 200
     else:
+        cursor.close()
+        connection.close()
         return jsonify({"message": "Incorrect username or password"}), 401
-    
-    cursor.close()
-    connection.close()
 
 @app.route('/api/courses', methods=['GET'])
 def getCourses():
