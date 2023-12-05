@@ -34,16 +34,32 @@ def login():
         cursor.close()
         connection.close()
         return jsonify({"message": "Incorrect username or password"}), 401
-
-@app.route('/api/courses', methods=['GET'])
-def getCourses():
+    
+@app.route('/signup', method=['POST'])
+def signup():
+    data = request.json
+    firstName = data['Fname']
+    lastName = data['Lname']
+    email = data['Email']
+    pw = hashlib.sha256(data['Passwd'].encode()).hexdigest()
+    majorId = data['majorID']
+    
     connection = getConnection()
     cursor = connection.cursor()
-    cursor.execute('SELECT * FROM courses')
-    courses = cursor.fetchall()
+    
+    cursor.execute("SELECT * FROM tblUser WHERE Email = %s", (email,))
+    if cursor.fetchone():
+        return jsonify({"message": "Email already registered"}), 409
+    
+    cursor.execute(
+        "INSERT INTO tblUser (Fname, Lname, Email, Passwd, majorID) VALUES (%s, %s, %s, %s, %s)",
+        (firstName, lastName, email, pw, majorId))
+    
+    connection.commit()
     cursor.close()
     connection.close()
-    return jsonify(courses)
+    
+    return jsonify({"message": "Successfully created new account"}), 201
 
 def getConnection():
     connection = connect(
@@ -54,5 +70,5 @@ def getConnection():
     )
     return connection
 
-#if __name__ == '__main--':
-    #app.run(debug=True)
+if __name__ == '__main--':
+    app.run(debug=True)

@@ -149,10 +149,22 @@
             return true;
         },
 
-        handleSubmit() {
-            if (this.validateForm()) {
-                alert('Form submitted successfully!');
+        async handleSubmit() {
+        if (this.validateForm()) {
+            try {
+                const response = await this.axios.post('http://localhost:5000/signup', {
+                    Fname: this.firstname,
+                    Lname: this.lastname,
+                    Email: this.email,
+                    Passwd: this.password,
+                    majorID: this.getMajorsID(this.selectedMajor)  // Assuming you have a method to convert major name to ID
+                });
+                alert('Registration successful!');
+                this.$router.push('/login'); // Redirect to login page after signup
+            } catch (error) {
+                alert('Registration failed: ' + error.response.data.message);
             }
+        }
         },
     },
 };
