@@ -71,7 +71,7 @@
 
     .dropdown-menu {
         font-family: 'akira';
-        background-color: #ffffff;
+        background-color: #ffffff00;
         border: 1px solid transparent;
         text-align: center;
         min-width: 220px;
@@ -81,6 +81,7 @@
         color: #000000;
         border: 1px solid #000000;
         text-align: center;
+        background-color: #ffffff;
     }
 
     .dropdown-item:hover {
