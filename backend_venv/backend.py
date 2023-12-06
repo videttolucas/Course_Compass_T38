@@ -62,6 +62,7 @@ def signup():
             insertQuery = """INSERT INTO cs425.tblUser (Fname, Lname, Email, Passwd, majorID) VALUES (%s, %s, %s, %s, %s)"""
             cursor.execute(insertQuery, (firstname, lastname, email, password, majorID))
             connection.commit()
+            session['user_email'] = email
             return jsonify({"message": "Signup successful"}), 200
         except Error as err:
             print("Error while inserting data into database", err)
@@ -71,6 +72,35 @@ def signup():
             connection.close()
     else:
         return jsonify({"error": "Database connection failed"}), 500
+
+@app.route('/getUserInfo', methods=['GET'])
+def getUserInfo():
+    user_email = session.get('user_email')
+    if not user_email:
+        return jsonify({"error": "User not logged in"}), 401
+    
+    connection = connectToDB()
+    if connection:
+        cursor = connection.cursor(dictionary=True)
+        try:
+            cursor.execute("SELECT Fname, Lname, Email, majorID FROM cs425.tblUser WHERE Email = %s", (user_email,))
+            user_info = cursor.fetchone()
+            if user_info:
+                major_id = user_info['majorID']
+                cursor.execute("SELECT majorName FROM cs425.tblMajor WHERE majorID = %s", (major_id,))
+                major = cursor.fetchone()
+                if major:
+                    user_info['major'] = major['majorName']
+                return jsonify(user_info), 200
+            else:
+                return jsonify({"error": "User not found"}), 404
+        except Error as err:
+            return jsonify({"error": "Error while fetching data: " + str(err)}), 500
+        finally:
+            cursor.close()
+            connection.close()
+    else:
+        return jsonify({"error": "DB connection failed"}), 500
 
 def connectToDB():
     try:
