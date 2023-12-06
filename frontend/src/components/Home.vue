@@ -3,31 +3,24 @@
 <!-- This is the first page the user will see -->
 
 <template>
-    <br>
-    <br>
-    <h1>Remove the clutter of your college experience.</h1>
-    <h1>Use Course Compass.</h1>
-    <br>
-
-    <img src="@/assets/unrskyline.png" alt="Unr whole campus with skyline">
-    <br>
-    <br>
-
-    <div class="button-container">
-        <router-link to="/signup">
-            <button class="get-started-button">Get Started</button>
-        </router-link>
+    <div class="image-container">
+    <img src="@/assets/unrskyline2.png" alt="Unr whole campus with skyline">
+        <div class="button-container">
+            <router-link to="/signup">
+                <button class="get-started-button">Get Started</button>
+            </router-link>
+        </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
 </template>
 
 <script>
 </script>
 
 <style scoped>
+    .image-container {
+        position: relative;
+    }
+
     p{
         font-family: 'Poppins', sans-serif;
         font-size: 20px;
@@ -42,34 +35,41 @@
     img {
         width: 100%;
         height: auto;
+        border-bottom:#000000 2px solid;
     }
 
     .button-container {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
     }
 
     .get-started-button {
         font-family: akira;
-        background-color: #000000;
+        background-color: #00000000;
         color: #ffffff;
-        padding: 10px 30px;
-        font-size: 30px;
-        border: none;
+        padding: 5% 10%;
+        font-size: 2vw;
+        border: white 3px solid;
         cursor: pointer;
         display: inline-block;
         transition: background-color 0.3s linear, color 0.3s linear;
         text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 12px 10px rgba(0, 0, 0, 0.992);
     }
 
     .get-started-button:hover {
         background-color: #ffffff;
         color: #000000;
+    }
+
+    @media screen and (max-width: 600px) {
+        .get-started-button {
+            padding: 8% 15%;
+            font-size: 4vw;
+        }
     }
 </style>
