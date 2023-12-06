@@ -41,7 +41,7 @@
     .button-container {
         position: absolute;
         top: 75%;
-        left: 50%;
+        left: 48%;
         transform: translate(-50%, -50%);
         text-align: center;
     }
