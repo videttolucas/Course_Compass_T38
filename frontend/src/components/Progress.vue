@@ -18,9 +18,11 @@
             <div class="col-md-5 d-flex flex-column">
                 <br>
                 <h2>Courses</h2>
-                <div class="course-container" v-for="(course, courseIndex) in major.courses" :key="courseIndex">
-                    <input type="checkbox" v-model="course.completed" />
-                    <label>{{ course.name }}</label>
+                <div class="scroll">
+                    <div class="course-container" v-for="(course, courseIndex) in major.courses" :key="courseIndex">
+                        <input type="checkbox" v-model="course.completed" />
+                        <label>{{ course.name }}</label>
+                    </div>
                 </div>
             </div>
             </div>
@@ -189,6 +191,15 @@
         margin-bottom: 8px;
         padding: 8px;
         max-width: 100%;
+        max-height: 50px;
+        border: 2px solid #000000;
+        border-radius:5px;
+    }
+
+    .scroll {
+        overflow-x: auto;
+        height: 60%;
+        width: 100%;
     }
 
 </style>
