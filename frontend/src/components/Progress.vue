@@ -5,8 +5,8 @@
 <!-- The user can check off the courses that they have completed and the progress bar and units completed will update accordingly -->
 
 <template>
-  <div class="progress-page">
-    <h2>Progress</h2>
+  <!-- <div class="progress-page">
+    <h2>Progress</h2> -->
 
     <!-- Your major array with checkboxes -->
     <div v-for="(course, index) in major" :key="index">

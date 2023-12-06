@@ -152,6 +152,7 @@
         handleSubmit() {
             if (this.validateForm()) {
                 alert('Form submitted successfully!');
+                this.$router.push('/'); // Redirect to home page
             }
         },
     },
