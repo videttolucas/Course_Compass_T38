@@ -1,14 +1,17 @@
+<!-- Created by: John Montesa -->
+<!-- This is the Progress page for Course Compass -->
+<!-- This page will show the progress of the specific user's college career in a progress bar style -->
+<!-- The progress bar will be based on the courses that the user has completed -->
+<!-- The user can check off the courses that they have completed and the progress bar and units completed will update accordingly -->
+
 <template>
-    <div class="progress-page">
-        <div v-for="(major, index) in filteredMajors" :key="index">
-            <div>
-            <h1>{{ major.name }}</h1>
-            <div class="course-container" v-for="(course, courseIndex) in major.courses" :key="courseIndex">
-                <input type="checkbox" v-model="course.completed" />
-                <label>{{ course.name }}</label>
-            </div>
-            </div>
-        </div>
+  <div class="progress-page">
+    <h2>Progress</h2>
+
+    <!-- Your major array with checkboxes -->
+    <div v-for="(course, index) in major" :key="index">
+      <input type="checkbox" v-model="course.completed" @change="updateProgress" />
+      <label>{{ course.name }}</label>
     </div>
 
     <div class="footer">
@@ -32,80 +35,41 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                user: {
-                    firstname: 'John',
-                    lastname: 'Montesa',
-                    email: '',
-                    major: 'Computer Science & Engineering',
-                },
-                majors: [
-                {
-                    name: 'Computer Science & Engineering',
-                    courses: [
-                        { name: 'CS 135', completed: false },
-                        { name: 'CS 202', completed: false },
-                        { name: 'CS 219', completed: false },
-                        { name: 'CS 302', completed: false },
-                        { name: 'CS 365', completed: false },
-                        { name: 'CS 425', completed: false },
-                        { name: 'CS 426', completed: false },
-                        { name: 'CS 446', completed: false },
-                        { name: 'CS 456', completed: false },
-                        { name: 'CS 477', completed: false },
-                    ],
-                },
-                {
-                    name: 'Electrical Engineering',
-                        courses: [
-                        { name: 'EE 101', completed: false },
-                        { name: 'EE 202', completed: false },
-                        { name: 'EE 303', completed: false },
-                    ],
-                },
-                ],
-
-                selectedMajor: null,
-            };
-        },
-    
-        created() {
-            this.selectedMajor = this.user.major; 
-        },
-
-        computed: {
-            filteredMajors() {
-                return this.majors.filter((major) => major.name === this.user.major);
-            },
-            progressPercentage() {
-                const selectedMajorCourses = this.majors.find((major) => major.name === this.user.major).courses;
-                const completedCourses = selectedMajorCourses.filter((course) => course.completed).length;
-                const totalCourses = selectedMajorCourses.length;
-                return (completedCourses / totalCourses) * 100;
-            },
-        },
+export default {
+  data() {
+    return {
+      major: [
+        { name: 'Course 1', completed: false },
+        { name: 'Course 2', completed: false },
+        { name: 'Course 3', completed: false },
+        { name: 'Course 4', completed: false },
+        { name: 'Course 5', completed: false },
+        { name: 'Course 6', completed: false },
+      ],
+      totalCourses: 6, // Total number of courses for full progress
     };
+  },
+  computed: {
+    // Calculate the progress percentage based on completed courses
+    progressPercentage() {
+      const completedCourses = this.major.filter((course) => course.completed).length;
+      return (completedCourses / this.totalCourses) * 100;
+    },
+  },
+  methods: {
+    // Update progress when a checkbox is changed
+    updateProgress() {
+      // Implement any additional logic if needed
+    },
+  },
+};
 </script>
 
 <style scoped>
-    h2 {
-        font-family: 'akira', akira;
-        text-align: left;
-        margin-left: 30px;
-    }
-
-    h1{
-        font-family: 'akira', akira;
-        text-align: center;
-        margin-left: 30px; 
-    }
-
-    .progress-page {
-        width: 100%;
-        margin: 10px auto;
-    }
+.progress-page {
+  max-width: 100%;
+  margin: 10px;
+}
 
     input[type="checkbox"] {
         margin-right: 8px;
@@ -134,25 +98,12 @@
         margin-left: 10px;
     }
 
-    .completion-text {
-        font-family: akira;
-        margin:  3px auto;
-        color: #000;
-        font-size: 18px;
-    }
-
-    .footer { 
-        position: absolute;
-        bottom: 0; 
-        left: 0;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .course-container {
-        font-family: Popins, sans-serif;
-        align-items: center;
-        padding: 8px;
-    }
-
+.completion-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  padding-left: 5px;
+  color: #000; /* Black text */
+}
 </style>
